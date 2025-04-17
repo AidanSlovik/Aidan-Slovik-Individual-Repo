@@ -1,21 +1,18 @@
+String status = "";
+Upgrade upgradeTest;
+
 void setup() {
   size(400, 400);
-  
-  ellipseMode(CENTER);
+  Button button = new Button(50, 50, 50, 200, "hi", 100, 20);
+  upgradeTest = new Upgrade(button, 2.0, 5.0);
+  //ellipseMode(CENTER);
 }
 
 void draw() {
   background(125);
-  Button button = new Button(50, 50, 50, 200, "hi", 100, 20);
-  button.display();
-  if(button.isHovered() == true) {
-    if(mousePressed) {
-      text('p', 150, 100);
-    } else {
-      text('h', 150, 100);
-    }
-  }
-  
-
-  ellipse(200, 200, 100, 100);
+  upgradeTest.display();
+  upgradeTest.update();
+  //println(status);
+  //ellipse(200, 200, 100, 100);
+  text("Status: " + status, 150, 150);
 }
