@@ -7,6 +7,7 @@ public class Button {
   String text;
   int textSize;
   int cloor;
+  int tempCloor;
 
   public Button(int x, int y, int w, int h, String text, int c, int textSize) {
     this.xPos = x;
@@ -19,8 +20,8 @@ public class Button {
   }
 
   void display() {
-    fill(cloor);
-    rect(xPos, yPos, wdith, hieght, 0, 0, 0, 0);
+    fill(tempCloor);
+    rect(xPos, yPos, wdith, hieght, 0);
     fill(255);
     textAlign(CENTER, CENTER);
     text(text, xPos + wdith / 2, yPos + hieght / 2);
@@ -28,9 +29,10 @@ public class Button {
 
   boolean isHovered() {
     if (mouseX >= xPos && mouseX <= xPos + wdith && mouseY >= yPos && mouseY <= yPos + hieght) {
-      cloor = 150;
+      tempCloor = cloor + 50;
       return true;
     }
+    tempCloor = cloor;
     return false;
   }
 }
