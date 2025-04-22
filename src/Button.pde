@@ -1,5 +1,6 @@
 public class Button {
 
+  int id;
   int xPos;
   int yPos;
   int wdith;
@@ -9,7 +10,8 @@ public class Button {
   int cloor;
   int tempCloor;
 
-  public Button(int x, int y, int w, int h, String text, int c, int textSize) {
+  public Button(int id, int x, int y, int w, int h, String text, int c, int textSize) {
+    this.id = id;
     this.xPos = x;
     this.yPos = y;
     this.wdith = w;
