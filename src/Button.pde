@@ -37,4 +37,8 @@ public class Button {
     tempCloor = cloor;
     return false;
   }
+  
+  int getID() {
+    return id; 
+  }
 }
