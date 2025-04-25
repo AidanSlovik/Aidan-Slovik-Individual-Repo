@@ -10,7 +10,7 @@ public class Button {
   int cloor;
   int tempCloor;
 
-  public Button(int id, int x, int y, int w, int h, String text, int c, int textSize) {
+  public Button(int id, int x, int y, int w, int h, String text, int textSize, int c) {
     this.id = id;
     this.xPos = x;
     this.yPos = y;
