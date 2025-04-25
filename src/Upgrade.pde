@@ -19,7 +19,7 @@ public class Upgrade {
     if (button.isHovered()) {
       if (mousePressed && !pressedLastFrame) {
         status = "Upgraded";
-        println("Upgrade " + button.getID()  + " activated: x" + multiplier + ", +" + adder);
+        println("Upgrade " + button.getID()  + " activated");
       } else if (!mousePressed) {
         status = "hover";
       }
