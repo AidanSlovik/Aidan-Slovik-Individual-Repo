@@ -1,13 +1,22 @@
-private int count;
+public class Counter {
+  int value = 0;
 
-public counter(int c) {
-    this.count = c;
-}
+  public void add(int amount) {
+    value += amount;
+  }
 
-public void increment() {
+  public int get() {
+    return value;
+  }
 
-}
+  public void subtract(int num) {
+    value -= num;
+  }
 
-public int getCount() {
-
+  public void display(float x, float y) {
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("Counter: " + value, x, y);
+  }
 }
