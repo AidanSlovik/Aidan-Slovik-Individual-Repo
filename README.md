@@ -22,7 +22,7 @@ The player clicks on the main button, which gives them points. They can then spe
 4. I/O(for easier button and upgrade creation and eventual high score keeping)
 5. GUI
 
-Class Diagram:
+### Class Diagram:
 
 
 
