@@ -10,13 +10,13 @@ Download instructions:
 4. Run the program
 
 To Do:
-!. Add end goals such as speedrun mode and get points mode
+1. Add end goals such as speedrun mode and get points mode
 2. Add a start screen with instructions on how to play
 3. Add better graphics and implement the theme
 4. Add a way to keep high scores
 
 Year two concepts:
-a. abstract class(for my upgrade class which is not declared)
+1. abstract class(for my upgrade class which is not declared)
 2. inheritance(for different upgrade classes)
 3. enhanced for loops(to run through arrays and arraylists for readability)
 4. I/O(for easier button and upgrade creation and eventual high score keeping)
