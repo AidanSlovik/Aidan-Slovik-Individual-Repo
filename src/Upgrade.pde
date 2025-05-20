@@ -1,41 +1,38 @@
-public class Upgrade {
+public abstract class Upgrade {
 
-  private Button button;
-  private float multiplier;
-  private float adder;
-  private boolean pressedLastFrame = false;
+  protected Button button;
+  protected int cost;
+  protected int amount;
+  protected boolean pressedLastFrame = false;
 
-  public Upgrade(Button b, float m, float a) {
+  public Upgrade(Button b, int c, int a) {
     this.button = b;
-    this.multiplier = m;
-    this.adder = a;
+    this.cost = c;
+    this.amount = a;
   }
 
   public void display() {
     button.display();
+    text("Cost: " + cost, button.getXPos() + button.getWidth() / 2, button.getYPos() + button.getHeight() / 2 + 30);
   }
 
   public void update() {
     if (button.isHovered()) {
       if (mousePressed && !pressedLastFrame) {
-        status = "Upgraded";
-        println("Upgrade " + button.getID()  + " activated");
       } else if (!mousePressed) {
-        status = "hover";
       }
     } else {
-      status = "nothing";
     }
     pressedLastFrame = mousePressed;
   }
 
 
-  public float getMulti() {
-    return multiplier;
+  public int getAmount() {
+    return amount;
   }
-  
- 
-  public float getAdder() {
-    return adder;
+
+
+  public int getCost() {
+    return cost;
   }
 }
