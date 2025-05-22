@@ -6,8 +6,8 @@ boolean start = false;
 String gameType = "";
 boolean clickButtonPressedLastFrame = false;
 Button clickButton = new Button(999, 150, 300, 100, 50, "CLICK", "CLICK", color(200));
-Button timedrun = new Button(-1, width, height, 200, 100, "timed run", "Timed run", 100);
-Button speedrun = new Button(-2, width, height - 100, 200, 100, "speed run", "speed run", 100);
+Button timedrun = new Button(-1, width, height + 200, 200, 100, "timed run", "Timed run", 100);
+Button speedrun = new Button(-2, width + 400, height + 200, 200, 100, "speed run", "speed run", 100);
 Timer gameTimer;
 boolean gameOver = false;
 String finalTime;
@@ -42,7 +42,7 @@ void setup() {
 void draw() {
   if (start == false) {
     background(0);
-    text("Start", width/2, height/2);
+    //text("Start", width/2, height/2);
     timedrun.isHovered();
     timedrun.display();
     speedrun.isHovered();
