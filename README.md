@@ -12,8 +12,9 @@ The player clicks on the main button, which gives them points. They can then spe
 ## To Do:
 1. ✅ Add end goals such as speedrun mode and get points mode
 2. ❌ Add a start screen with instructions on how to play
-3. ❌ Add better graphics and implement the theme
-4. ❌ Add a way to keep high scores
+3. ❌ Add more buttons and implement the flow of the game
+4. ❌ Add better graphics and implement the theme
+5. ❌ Add a way to keep high scores
 
 ## Year two concepts:
 1. abstract class(for my upgrade class which is not declared)
