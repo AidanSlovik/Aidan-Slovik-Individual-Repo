@@ -2,15 +2,21 @@ ArrayList<Button> buttons = new ArrayList<Button>();
 ArrayList<Upgrade> upgrades = new ArrayList<Upgrade>();
 Counter counter;
 int manualClickPower = 1;
+boolean start = false;
+String gameType = "";
 boolean clickButtonPressedLastFrame = false;
+Button clickButton = new Button(999, 150, 300, 100, 50, "CLICK", "CLICK", color(200));
+Button timedrun = new Button(-1, width, height, 200, 100, "timed run", "Timed run", 100);
+Button speedrun = new Button(-2, width, height - 100, 200, 100, "speed run", "speed run", 100);
+Timer gameTimer;
+boolean gameOver = false;
+String finalTime;
 
 void setup() {
   size(800, 800);
   Table buttonTable;
   buttonTable = loadTable("Button Data.csv", "header");
   counter = new Counter();
-  Button clickButton = new Button(999, 150, 300, 100, 50, "CLICK", "CLICK", color(200));
-  buttons.add(clickButton);
   for (TableRow row : buttonTable.rows()) {
 
     int ID = row.getInt("ID");
@@ -30,36 +36,67 @@ void setup() {
     } else if (TYPE.equals("SINGLE")) {
       upgrades.add(new SingleUpgrade(button, COST, AMOUNT, counter));
     }
-    // also inheritance for adding upgrades and multiplying upgrades
   }
-
-  //ellipseMode(CENTER);
 }
 
 void draw() {
-  background(125);
-  for (Upgrade u : upgrades) {
-    u.update();
-    u.display();
-  }
-
-  counter.display(width / 2, 50);
-
-  for (Button b : buttons) {
-    if (b.type.equals("CLICK")) {
-      b.isHovered();
-      b.display();
-
-      if (b.isHovered()) {
-        if (mousePressed && !clickButtonPressedLastFrame) {
-          counter.add(manualClickPower);
-        }
-      }
+  if (start == false) {
+    background(0);
+    text("Start", width/2, height/2);
+    timedrun.isHovered();
+    timedrun.display();
+    speedrun.isHovered();
+    speedrun.display();
+    if (mousePressed && timedrun.isHovered()) {
+      gameType = "timedrun";
+      start = true;
+      println(gameType);
+      gameTimer = new Timer(10, true);//time for timedrun
+    } else if (mousePressed && speedrun.isHovered()) {
+      gameType = "speedrun";
+      start = true;
+      println(gameType);
+      gameTimer = new Timer(0, false);
     }
   }
-  clickButtonPressedLastFrame = mousePressed;
 
+  if (start == true && gameOver == false) {
+    background(125);
+    for (Upgrade u : upgrades) {
+      u.update();
+      u.display();
+    }
 
-  //ellipse(200, 200, 100, 100);
-  //text("Status: " + status, 150, 150);
+    fill(255);
+    textSize(24);
+    text("Time: " + gameTimer.getTimeString(), width / 2, 100);
+
+    counter.display(width / 2, 50);
+
+    clickButton.isHovered();
+    clickButton.display();
+    if (clickButton.isHovered() && mousePressed && !clickButtonPressedLastFrame) {
+      counter.add(manualClickPower);
+    }
+
+    clickButtonPressedLastFrame = mousePressed;
+
+    if (gameType.equals("timedrun") && gameTimer.isFinished()) {
+      gameOver = true;
+    } else if (gameType.equals("speedrun") && counter.get() >= 50) {//limit for speedrun
+      finalTime = gameTimer.getTimeString();
+      gameOver = true;
+    }
+  }
+  if (gameOver) {
+    background(50);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    if (gameType.equals("timedrun")) {
+      text("Time's up! Final Score: " + counter.get(), width / 2, height / 2);
+    } else if (gameType.equals("speedrun")) {
+      text("Goal reached in: " + finalTime, width / 2, height / 2);
+    }
+  }
 }
