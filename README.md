@@ -10,10 +10,10 @@ The player clicks on the main button, which gives them points. They can then spe
 4. Run the program
 
 ## To Do:
-1. Add end goals such as speedrun mode and get points mode
-2. Add a start screen with instructions on how to play
-3. Add better graphics and implement the theme
-4. Add a way to keep high scores
+1. ✅ Add end goals such as speedrun mode and get points mode
+2. ❌ Add a start screen with instructions on how to play
+3. ❌ Add better graphics and implement the theme
+4. ❌ Add a way to keep high scores
 
 ## Year two concepts:
 1. abstract class(for my upgrade class which is not declared)
