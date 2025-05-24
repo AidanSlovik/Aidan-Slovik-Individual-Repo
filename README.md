@@ -29,3 +29,8 @@ The player clicks on the main button, which gives them points. They can then spe
 
 
 ![alt text](https://github.com/AidanSlovik/Aidan-Slovik-Individual-Repo/blob/main/images/Class%20Diagram%20Updated.png?raw=true  "Class Diagram")
+
+Screenshot of test gameplay
+
+
+![alt text](https://github.com/AidanSlovik/Aidan-Slovik-Individual-Repo/blob/main/images/Screenshot%202025-05-23%20222438.png?raw=true  "Class Diagram")
